@@ -1,0 +1,8 @@
+Requeriments
+
+Community
+pip3 install num2words
+pip3 install psycopg2-binary
+
+Enterprise
+

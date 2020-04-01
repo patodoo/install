@@ -1,0 +1,57 @@
+Server
+
+186.31.117.188
+
+sudo apt install postgresql postgresql-client
+sudo nano /etc/postgresql/10/main/pg_hba.conf
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+host    all             all             192.168.1.0/24          md5
+sudo nano /etc/postgresql/10//main/postgresql.conf
+listen_addresses = 'localhost,192.168.1.2'
+port = 5432
+max_connections = 80
+
+sudo apt install python3-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev
+
+sudo apt install npm
+npm install -g rtlcss
+
+adduser --system --home=/opt/odoo --group odoo
+
+sudo su - postgres
+createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo
+exit
+
+wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb && sudo dpkg -i wkhtmltox_0.12.5-1.bionic_amd64.deb
+sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin/
+sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin/
+
+sudo su - odoo -s /bin/bash
+git clone https://github.com/odoo/odoo.git
+pip3 install setuptools wheel
+pip3 install -r requirements.txt
+git clone https://github.com/odoo/enterprise.git
+exit
+
+sudo cp /opt/odoo/odoo/debian/init /etc/init.d/odoo
+sudo chmod 755 /etc/init.d/odoo
+sudo chown root: /etc/init.d/odoo
+sudo cp /opt/odoo/odoo/debian/init /etc/init.d/odoo && sudo chmod +x /etc/init.d/odoo
+sudo ln -s /opt/odoo/odoo/odoo-bin /usr/bin/odoo
+
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
+
+mkdir /etc/odoo
+sudo cp /opt/odoo/odoo/debian/odoo.conf /etc/odoo/odoo.conf
+sudo chown odoo: /etc/odoo/odoo.conf
+sudo chmod 640 /etc/odoo/odoo.conf
+
+sudo systemctl enable odoo
+sudo systemctl start odoo
+
+git@github.com:odoo/design-themes.git
+
+
+
