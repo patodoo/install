@@ -1,0 +1,20 @@
+Visual code
+
+host 186.31.117.188
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-copy-id -i ~/.ssh/mykey user@host
+ssh -i ~/.ssh/mykey user@host
+
+{
+            "type": "python",
+            "request": "launch",
+            "name": "Odoo",
+            "args": [
+                "--addons-path=${workspaceRoot}/odoo/addons,${workspaceRoot}/enterprise",
+                "--http-port=6969",
+                //"--database=parcos_odoo",
+                //"--update=base"
+            ],
+            "program": "${workspaceRoot}/odoo/odoo-bin"
+        },

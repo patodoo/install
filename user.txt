@@ -1,0 +1,21 @@
+Usuarios
+
+sudo su todooadmin
+8Yahgp
+cd
+sudo adduser user
+sudo usermod -aG sudo user
+exit
+
+sudo su - postgres
+psql -U postgres
+create role user with password 'user';
+alter role user with login;
+alter role user with createdb;
+
+sudo su user
+cd
+sudo cp -r /opt/odoo/ /home/user/
+sudo chown -R user:user /home/user/
+
+
