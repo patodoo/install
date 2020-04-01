@@ -3,6 +3,7 @@ Server
 186.31.117.188
 
 sudo apt install postgresql postgresql-client
+sudo apt install parallel
 sudo nano /etc/postgresql/10/main/pg_hba.conf
 # IPv4 local connections:
 host    all             all             127.0.0.1/32            md5
@@ -52,6 +53,3 @@ sudo systemctl enable odoo
 sudo systemctl start odoo
 
 git@github.com:odoo/design-themes.git
-
-
-
