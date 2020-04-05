@@ -22,6 +22,7 @@ adduser --system --home=/opt/odoo --group odoo
 
 sudo su - postgres
 createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo
+qJqf4u
 exit
 
 wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb && sudo dpkg -i wkhtmltox_0.12.5-1.bionic_amd64.deb
