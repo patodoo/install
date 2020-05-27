@@ -1,8 +1,7 @@
 Usuarios
 
 sudo su todooadmin
-8Yahgp
-cd
+5bgYMttL
 sudo adduser user
 sudo usermod -aG sudo user
 exit
